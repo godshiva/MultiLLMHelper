@@ -6,3 +6,6 @@ keys/
 
 # Ignore everything in the logs directory
 logs/
+
+# Ignore everything in the __pycache__ directory
+__pycache__/
