@@ -1,0 +1,8 @@
+# Ignore everything in the venv directory
+venv/
+
+# Ignore everything in the keys directory
+keys/
+
+# Ignore everything in the logs directory
+logs/
