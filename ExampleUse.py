@@ -1,12 +1,12 @@
-from BardHandler import BardHandler
+from GeminiHander import GeminiHander
 from GPT4Handler import GPT4Handler
 from MistralHandler import MistralHandler
 from GPT35Handler import GPT35Handler
 
-for service in [BardHandler, GPT4Handler, GPT35Handler, MistralHandler]:
+for service in [GeminiHander, GPT4Handler, GPT35Handler, MistralHandler]:
     print("----")
     print(service.__name__)
-    print(service().ask("Identify yourself and say hello!"))
+    print(service().ask("Say hi to everyone."))
 
 """
 Sample output

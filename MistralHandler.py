@@ -3,7 +3,7 @@ import threading
 import time
 
 from mistralai.client import MistralClient
-from mistralai.models.chat_completion import ChatMessage  # pip install mistralai
+from mistralai.models.chat_completion import ChatMessage
 
 class MistralHandler():
     # Static lock shared by all instances
@@ -15,7 +15,7 @@ class MistralHandler():
         self.model = model
 
     def read_api_key(self, file_path):
-        with open(file_path, 'r') as file:
+        with open(os.path.join(file_path), 'r') as file:
             return file.read().strip()
 
     def ask(self, content):

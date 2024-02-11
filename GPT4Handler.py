@@ -1,13 +1,13 @@
 import os
 import threading
-from openai import OpenAI # pip install openai
+from openai import OpenAI
 
 class GPT4Handler:
     # Static lock shared by all instances
     _lock = threading.Lock()
 
     def __init__(self):
-        api_key_file = "./keys/openai_api_key.txt"  # Go here to set up https://platform.openai.com/docs/api-reference/introduction
+        api_key_file = "keys/openai_api_key.txt"  # Go here to set up https://platform.openai.com/docs/api-reference/introduction
         self.api_key = self.read_api_key(api_key_file)
 
     def read_api_key(self, file_path):
@@ -24,14 +24,21 @@ class GPT4Handler:
                     "content": content,
                 }
             ],
-            model="gpt-4-1106-preview",
+            model="gpt-4-0125-preview",
 
         )
-        response = chat_completion.choices[0].message.content
+        response = ""
+
+
+        for choice in chat_completion.choices:
+            response += choice.message.content + "\n"
+
+        response = response.strip()
 
         self._log_data(content, response)
 
         return response
+
 
 
     def _log_data(self, input_data, output_data):
