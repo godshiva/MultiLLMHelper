@@ -24,7 +24,7 @@ class GPT4Handler:
                     "content": content,
                 }
             ],
-            model="gpt-4-0125-preview",
+            model="gpt-4o-2024-05-13",
 
         )
         response = ""
